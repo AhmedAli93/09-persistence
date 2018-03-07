@@ -6,6 +6,7 @@ const Car = require('../model/car.js');
 
 module.exports = function(router) {
   router.get('/api/car', function(req, res) {
+    console.log('req:', req.url.query.id);
     if (req.url.query.id) {
       storage.fetchItem('car', req.url.query.id)
         .then( car => {

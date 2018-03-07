@@ -34,11 +34,11 @@ describe('Car routes', function(){
   });
   describe('GET: /api/car', () => {
     it('should contain a response body for a request made with a valid id', function(done){
+
       request.get(`localhost:3000/api/car?id=${car.id}`)
         .end((err, res) => {
           if(err) return done(err);
           car = JSON.parse(res.text);
-          console.log('car', car);
           expect(res.status).toEqual(200);
           expect(car.name).toEqual('test name');
           expect(car.content).toEqual('test content');
